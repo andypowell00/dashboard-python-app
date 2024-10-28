@@ -1,0 +1,6 @@
+praw
+pymongo
+requests
+beautifulsoup4
+logging
+python-dotenv
