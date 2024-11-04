@@ -1,0 +1,5 @@
+# Run weather_update.py every Monday at 5 am
+0 5 * * 1 python /app/scripts/weather_update.py
+
+# Run main.py every day at 5 am
+0 5 * * * python /app/scripts/main.py
