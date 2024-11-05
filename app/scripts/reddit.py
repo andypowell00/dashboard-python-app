@@ -1,12 +1,14 @@
-import sys
+import logging
 from utils.error_handler import handle_error
 import praw  # Reddit API wrapper
 from pymongo import MongoClient
 import os
 from dotenv import load_dotenv
+from utils.logging_config import configure_logging
 
 # Load environment variables from the .env file
 load_dotenv()
+configure_logging()
 
 # Set up Reddit client
 reddit = praw.Reddit(
@@ -50,8 +52,10 @@ def fetch_and_store_reddit_posts(subreddit_name, post_limit=5):
         if post_data:
             collection.insert_many(post_data)
             print(f"Inserted {len(post_data)} posts into the 'RedditPosts' collection.")
+            logging.info(f"Reddit posts inserted.")
         else:
             print("No posts found.")
+            logging.info(f"No posts found.")
     except Exception as e:
         handle_error(e, "Fetch from Reddit failed.")
 

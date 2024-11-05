@@ -2,8 +2,8 @@ __pycache__/
 *.pyc
 *.pyo
 .git/
-.gitignore
 .env
+.gitignore
 *.log
 *.tmp
 *.DS_Store
